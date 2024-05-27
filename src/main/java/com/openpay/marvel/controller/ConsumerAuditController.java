@@ -2,18 +2,19 @@ package com.openpay.marvel.controller;
 
 import com.openpay.marvel.model.ConsumerAudit;
 import com.openpay.marvel.model.Response;
-import com.openpay.marvel.repository.ConsumerAuditRepository;
+
 import com.openpay.marvel.service.ConsumerAuditService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/binnacle")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ConsumerAuditController {
 
     @Autowired

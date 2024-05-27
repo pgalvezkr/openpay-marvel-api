@@ -1,25 +1,28 @@
 package com.openpay.marvel.service;
 
+import com.consumer.marvel.dto.ApiResponse;
 import com.openpay.marvel.model.ConsumerAudit;
 import com.openpay.marvel.repository.ConsumerAuditRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.time.Instant;
+
 
 @Service
 @AllArgsConstructor
 public class MarvelService {
 
     private final ConsumerAuditRepository consumerAuditRepository;
+    private final com.consumer.marvel.client.CharacterClient characterClient;
 
-    public List <Character> getCharacters (){
-        consumerAuditRepository.save(ConsumerAudit.builder().serviceName("Get Characters").build());
-        return null;
+    public ApiResponse getCharacters() {
+        consumerAuditRepository.save(ConsumerAudit.builder().serviceName("Get Characters").executionDate(Instant.EPOCH.EPOCH.now()).build());
+        return  characterClient.getCharacters();
     }
 
-    public Character getCharacterById (){
-        consumerAuditRepository.save(ConsumerAudit.builder().serviceName("Get Character by Id").build());
+    public ApiResponse getCharacterById() {
+        consumerAuditRepository.save(ConsumerAudit.builder().serviceName("Get Character by Id").executionDate(Instant.EPOCH.now()).build());
         return null;
     }
 }

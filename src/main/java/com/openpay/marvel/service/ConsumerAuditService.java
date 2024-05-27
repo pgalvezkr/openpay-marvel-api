@@ -5,6 +5,7 @@ import com.openpay.marvel.repository.ConsumerAuditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ConsumerAuditService {
     }
 
     public void saveConsumerAudit (ConsumerAudit consumerAudit){
-        consumerAudit.setExecutionDate(LocalDateTime.now());
+        consumerAudit.setExecutionDate(Instant.EPOCH.now());
         this.consumerAuditRepository.save(consumerAudit);
     }
 }
