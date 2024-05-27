@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 
 
 @Service
@@ -18,7 +17,7 @@ public class MarvelService {
     private final com.consumer.marvel.client.CharacterClient characterClient;
 
     public ApiResponse getCharacters() {
-        consumerAuditRepository.save(ConsumerAudit.builder().serviceName("Get Characters").executionDate(Instant.EPOCH.now()).build());
+        consumerAuditRepository.save(ConsumerAudit.builder().serviceName("Get Characters").executionDate(Instant.EPOCH.EPOCH.now()).build());
         return  characterClient.getCharacters();
     }
 
